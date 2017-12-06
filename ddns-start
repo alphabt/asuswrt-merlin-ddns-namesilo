@@ -5,9 +5,15 @@ DOMAIN="domain"
 HOST="host"
 IP=${1}
 
+if [ -z "$HOST" ]; then
+    FULLDOMAIN=$DOMAIN
+else
+    FULLDOMAIN=$HOST.$DOMAIN
+fi
+
 # Fetch DNS record ID
 RESPONSE="$(curl -s "https://www.namesilo.com/api/dnsListRecords?version=1&type=xml&key=$APIKEY&domain=$DOMAIN")"
-RECORD_ID="$(echo $RESPONSE | sed -n "s/^.*<record_id>\(.*\)<\/record_id>.*$HOST\.$DOMAIN.*$/\1/p")"
+RECORD_ID="$(echo $RESPONSE | sed -n "s/^.*<record_id>\(.*\)<\/record_id>.*<host>$FULLDOMAIN<\/host>.*$/\1/p")"
 
 # Update DNS record in Namesilo
 RESPONSE="$(curl -s "https://www.namesilo.com/api/dnsUpdateRecord?version=1&type=xml&key=$APIKEY&domain=$DOMAIN&rrid=$RECORD_ID&rrhost=$HOST&rrvalue=$IP&rrttl=7207")"
