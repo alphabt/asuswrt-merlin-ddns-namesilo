@@ -1,22 +1,30 @@
-This is a custom shell script for Asuswrt-Merlin router firmware to update DDNS via Namesilo domain registar.
+# Asuswrt-Merlin DDNS for NameSilo
+
+This is a custom shell script for Asuswrt-Merlin router firmware to update DDNS via NameSilo.
 
 ## Setup
 
-1. Get an API key from [Namesilo](https://www.namesilo.com/account_api.php).
-1. Add an A record in [Namesilo](https://www.namesilo.com/account_domain_manage_dns.php) for your domain (and host if you need one). IP for the record can be anything since we will update it with a script later anyway.
-1. Download [ddns-start](https://github.com/iczman/asuswrt-merlin-namesilo-ddns/blob/master/ddns-start) file and modify the following variables with your own settings
+1. Get an API key from [NameSilo](https://www.namesilo.com/account_api.php).
 
-    `APIKEY` is your Namesilo API key
+1. Add an A record in [NameSilo](https://www.namesilo.com/account_domain_manage_dns.php) for your domain (and host if you need one). IP for the record can be anything since we will update it with a script later anyway.
 
-    `DOMAIN` is your domain in the A record
+1. Download [ddns-start](ddns-start) file and modify the following variables with your own settings:
 
-    `HOST` is your host in the A record (leave it blank if you don't have one)
+    `APIKEY` is your NameSilo API key
 
-1. SSH to your router and place `ddns-start` under /jffs/scripts/
-1. Log into the router web UI, go to Advanced Settings > WAN > DDNS and then set "Server" to "custom", then click the Apply button.
-1. If everything goes well you should see a popup alert that says the registeration is successful.
+    `DOMAIN` is your domain in the A record, e.g. example.com
 
-More info on writing your own custom DDNS script:
+    `HOST` is your host/subdomain in the A record (leave it blank if you don't have one)
+
+1. SSH to your router and place `ddns-start` under `/jffs/scripts/`
+
+1. Log into the router web UI
+
+    1. Go to `Advanced Settings` > `WAN` > `DDNS`
+    1. Set `Server` to `Custom`
+    1. Click the `Apply` button
+
+## References
 
 - https://github.com/RMerl/asuswrt-merlin/wiki/Custom-DDNS
 - https://github.com/RMerl/asuswrt-merlin/wiki/User-scripts
