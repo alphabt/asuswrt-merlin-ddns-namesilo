@@ -26,5 +26,5 @@ This is a custom shell script for Asuswrt-Merlin router firmware to update DDNS 
 
 ## References
 
-- https://github.com/RMerl/asuswrt-merlin/wiki/Custom-DDNS
-- https://github.com/RMerl/asuswrt-merlin/wiki/User-scripts
+- <https://github.com/RMerl/asuswrt-merlin/wiki/Custom-DDNS>
+- <https://github.com/RMerl/asuswrt-merlin/wiki/User-scripts>

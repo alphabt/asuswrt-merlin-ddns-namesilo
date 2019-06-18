@@ -6,9 +6,9 @@ HOST="host"
 IP=${1}
 
 if [ -z "$HOST" ]; then
-    FULLDOMAIN=$DOMAIN
+  FULLDOMAIN=$DOMAIN
 else
-    FULLDOMAIN=$HOST.$DOMAIN
+  FULLDOMAIN=$HOST.$DOMAIN
 fi
 
 # Fetch DNS record ID
@@ -21,7 +21,7 @@ RESPONSE="$(curl -s "https://www.namesilo.com/api/dnsUpdateRecord?version=1&type
 # Check whether the update was successful
 echo $RESPONSE | grep -E "<code>(280|300)</code>" &>/dev/null
 if [ $? -eq 0 ]; then
-    /sbin/ddns_custom_updated 1
+  /sbin/ddns_custom_updated 1
 else
-    /sbin/ddns_custom_updated 0
+  /sbin/ddns_custom_updated 0
 fi
