@@ -22,6 +22,8 @@ If you use Asuswrt-Merlin version 384.7 or above you can leverage a new way to u
 
 1. SSH to your router and place `ddns-start` under `/jffs/scripts/`
 
+1. Make sure it's executable chmod +x /jffs/scripts/ddns-start
+
 1. Log into the router web UI
 
     1. Go to `Advanced Settings` > `WAN` > `DDNS`
@@ -30,5 +32,5 @@ If you use Asuswrt-Merlin version 384.7 or above you can leverage a new way to u
 
 ## References
 
-- <https://github.com/RMerl/asuswrt-merlin/wiki/Custom-DDNS>
-- <https://github.com/RMerl/asuswrt-merlin/wiki/User-scripts>
+- <https://github.com/RMerl/asuswrt-merlin.ng/wiki/Custom-DDNS>
+- <https://github.com/RMerl/asuswrt-merlin.ng/wiki/User-scripts>
